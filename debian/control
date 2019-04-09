@@ -1,0 +1,14 @@
+Source: netinstall-seeds
+Section: admin
+Priority: optional
+Maintainer: M.Angel Juan <m.angel.juan@gmail.com>
+Build-Depends: debhelper (>= 10)
+Standards-Version: 4.1.2
+Homepage: http://lliurex.net
+Vcs-Git: https://github.com/lliurex/netinstall-seeds.git
+
+Package: netinstall-seeds
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Preconfiguration files needed by debian-installer
+ Preconfiguration files needed by debian-installer when use netinstall into classroom model.
