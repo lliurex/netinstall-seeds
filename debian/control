@@ -8,7 +8,7 @@ Homepage: http://lliurex.net
 Vcs-Git: https://github.com/lliurex/netinstall-seeds.git
 
 Package: netinstall-seeds
-Architecture: any
+Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Preconfiguration files needed by debian-installer
  Preconfiguration files needed by debian-installer when use netinstall into classroom model.
