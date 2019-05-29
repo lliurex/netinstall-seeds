@@ -1,3 +1,9 @@
+netinstall-seeds (0.2) bionic; urgency=medium
+
+  * Add support postactions hook into file extra-commands.netinstall
+
+ -- M.Angel Juan <m.angel.juan@gmail.com>  Wed, 29 May 2019 17:47:12 +0200
+
 netinstall-seeds (0.1) bionic; urgency=medium
 
   * Initial Release.
