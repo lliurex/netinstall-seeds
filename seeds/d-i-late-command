@@ -25,6 +25,18 @@ check_and_install_nongpl(){
     fi
 }
 
+check_and_run_extra_commands(){
+    wget -q -O /extra-commands.netinstall http://preseed/extra-commands.netinstall
+    scr="/extra-commands.netinstall"
+    if [ -f "$scr" ]; then
+        oIFS=$IFS
+        IFS="|"
+        sh $scr
+        rm $scr
+        IFS=$oIFS
+    fi
+}
+
 # First fix the sources list for generic lliurex flavours
 put_apt_conf(){
     base="${1}"
@@ -94,6 +106,7 @@ put_apt_conf ${BASE_DIR} ${base_class}
 
 in-target dpkg --add-architecture i386
 
+check_and_run_extra_commands
 #if [ "x$base_class" = "xinfantil" ]; then
 #    in-target apt-get update
 #    in-target apt-get -y install lliurex-meta-infantil
