@@ -1,3 +1,9 @@
+netinstall-seeds (0.2.2) bionic; urgency=medium
+
+  * Fix typo error into preseed
+
+ -- M.Angel Juan <m.angel.juan@gmail.com>  Thu, 30 May 2019 13:52:12 +0200
+
 netinstall-seeds (0.2.1) bionic; urgency=medium
 
   * Fix broken mirror path 
