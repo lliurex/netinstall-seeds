@@ -104,7 +104,7 @@ check_and_install_nongpl
 
 put_apt_conf ${BASE_DIR} ${base_class}
 
-in-target dpkg --add-architecture i386
+# in-target dpkg --add-architecture i386
 
 check_and_run_extra_commands
 #if [ "x$base_class" = "xinfantil" ]; then
