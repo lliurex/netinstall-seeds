@@ -83,6 +83,11 @@ put_apt_conf(){
 #    fi
 }
 
+set_session(){
+    systemctl disable gdm || true
+    systemctl enable sddm || true
+}
+
 # Initial param checking
 
 if [ -z "${1}" ]; then 
@@ -107,6 +112,7 @@ put_apt_conf ${BASE_DIR} ${base_class}
 # in-target dpkg --add-architecture i386
 
 check_and_run_extra_commands
+set_session
 #if [ "x$base_class" = "xinfantil" ]; then
 #    in-target apt-get update
 #    in-target apt-get -y install lliurex-meta-infantil
