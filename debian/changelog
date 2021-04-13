@@ -1,3 +1,9 @@
+netinstall-seeds (0.2.6) focal; urgency=medium
+
+  * Fix set session
+
+ -- M.Angel Juan <m.angel.juan@gmail.com>  Tue, 13 Apr 2021 16:37:15 +0200
+
 netinstall-seeds (0.2.5) focal; urgency=medium
 
   * Set sddm as default login manager

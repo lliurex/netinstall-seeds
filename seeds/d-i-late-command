@@ -84,8 +84,8 @@ put_apt_conf(){
 }
 
 set_session(){
-    systemctl disable gdm || true
-    systemctl enable sddm || true
+    in-target systemctl disable gdm || true
+    in-target systemctl enable sddm || true
 }
 
 # Initial param checking
