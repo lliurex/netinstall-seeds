@@ -1,3 +1,9 @@
+netinstall-seeds (0.2.4) focal; urgency=medium
+
+  * Change default directory path for mirror
+
+ -- M.Angel Juan <m.angel.juan@gmail.com>  Tue, 13 Apr 2021 13:51:13 +0200
+
 netinstall-seeds (0.2.3) focal; urgency=medium
 
   * Initial focal release
