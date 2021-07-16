@@ -88,6 +88,13 @@ set_session(){
     in-target systemctl enable sddm || true
 }
 
+remove_resolv_conf(){
+    RESOLV=/target/etc/resolv.conf
+    if [ -f $RESOLV  ];then
+        rm -f $RESOLV
+    fi
+}
+
 # Initial param checking
 
 if [ -z "${1}" ]; then 
@@ -113,6 +120,7 @@ put_apt_conf ${BASE_DIR} ${base_class}
 
 check_and_run_extra_commands
 set_session
+remove_resolv_conf
 #if [ "x$base_class" = "xinfantil" ]; then
 #    in-target apt-get update
 #    in-target apt-get -y install lliurex-meta-infantil
