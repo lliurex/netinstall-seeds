@@ -1,3 +1,9 @@
+netinstall-seeds (0.2.7) focal; urgency=medium
+
+  * Remove resolv.conf after install
+
+ -- M.Angel Juan <m.angel.juan@gmail.com>  Fri, 16 Jul 2021 12:55:05 +0200
+
 netinstall-seeds (0.2.6) focal; urgency=medium
 
   * Fix set session
