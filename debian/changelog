@@ -1,3 +1,9 @@
+netinstall-seeds (0.2.8) focal; urgency=medium
+
+  * Create default netplan network config file
+
+ -- M.Angel Juan <m.angel.juan@gmail.com>  Mon, 19 Jul 2021 13:41:58 +0200
+
 netinstall-seeds (0.2.7) focal; urgency=medium
 
   * Remove resolv.conf after install
