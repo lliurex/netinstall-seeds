@@ -95,6 +95,27 @@ remove_resolv_conf(){
     fi
 }
 
+remove_netplan_configs(){
+    cp -r --backup=numbered /target/etc/netplan /target/etc/old.netplan.configs
+    mv --backup=numbered /target/etc/netplan /tmp
+    mkdir -p /target/etc/netplan
+}
+
+create_netplan_configs(){
+    BASE="/target"
+    FILENAME="01-network-manager-all.yaml"
+    LOCATION="/etc/netplan"
+
+    fullpath="${BASE}${LOCATION}/${FILENAME}"
+    if [ ! -f "${fullpath}" ];then
+        touch ${fullpath}
+        echo '#Let NetworkManager manage all devices on this system' >> ${fullpath}
+        echo 'network:' >> ${fullpath}
+        echo '  version: 2' >> ${fullpath}
+        echo '  renderer: NetworkManager' >> ${fullpath}
+    fi
+}
+
 # Initial param checking
 
 if [ -z "${1}" ]; then 
@@ -121,6 +142,9 @@ put_apt_conf ${BASE_DIR} ${base_class}
 check_and_run_extra_commands
 set_session
 remove_resolv_conf
+remove_netplan_configs
+create_netplan_configs
+
 #if [ "x$base_class" = "xinfantil" ]; then
 #    in-target apt-get update
 #    in-target apt-get -y install lliurex-meta-infantil
