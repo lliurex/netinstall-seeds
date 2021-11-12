@@ -116,6 +116,30 @@ create_netplan_configs(){
     fi
 }
 
+log_in_target(){
+    d="$(date)"
+    if [ -d "/target/var/log" ];then
+	echo "$d NETINSTALL LOG: ""$@" >> /target/var/log/netinstall
+    fi
+}
+
+fix_uefi_boot(){
+    if [ -d "/sys/firmware/efi/vars" ];then
+	if [ -d "/target/boot/efi/EFI" ];then
+	    if [ -d "/target/boot/efi/EFI/neon" ];then
+		cp -R /target/boot/efi/EFI/neon /target/boot/efi/EFI/ubuntu
+		log_in_target "Netinstall completed (UEFI mode)"
+	    else
+		log_in_target "Not detected neon dir inside EFI dir"
+	    fi
+	else
+	    log_in_target "Not detected EFI dir on /target/boot/efi" 
+	fi
+    else
+	log_in_target "Netinstall completed (BIOS mode)"
+    fi
+}
+
 # Initial param checking
 
 if [ -z "${1}" ]; then 
@@ -144,7 +168,7 @@ set_session
 remove_resolv_conf
 remove_netplan_configs
 create_netplan_configs
-
+fix_uefi_boot
 #if [ "x$base_class" = "xinfantil" ]; then
 #    in-target apt-get update
 #    in-target apt-get -y install lliurex-meta-infantil
