@@ -1,3 +1,9 @@
+netinstall-seeds (0.2.9) focal-updates; urgency=medium
+
+  * Fix UEFI boot
+
+ -- M.Angel Juan <m.angel.juan@gmail.com>  Fri, 12 Nov 2021 19:48:41 +0100
+
 netinstall-seeds (0.2.8) focal; urgency=medium
 
   * Create default netplan network config file
